@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "env": {
+    "VITE_API_URL": "https://3-way-handshaking-backend-efpo.vercel.app"
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://3-way-handshaking-backend-efpo.vercel.app/api/$1"
+    },
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
+}
