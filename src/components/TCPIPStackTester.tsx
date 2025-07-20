@@ -220,13 +220,6 @@ export default function TCPIPStackTester() {
   };
 
   const runRandomTest = async () => {
-    try {
-      await runTestApi();
-    } catch (err) {
-      console.error(err);
-      toast({ title: "Run Test Error", description: (err as Error).message, variant: "destructive" });
-    }
-
     const testInputs = ["S", "K", "Z", "X", "Y"];
     const randomData = testInputs[Math.floor(Math.random() * testInputs.length)];
     const useValidChecksum = Math.random() > 0.2; // 80% valid checksums
